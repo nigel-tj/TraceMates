@@ -5,7 +5,7 @@
     <div class="left_col scroll-view">
 
       <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Trace Mates</span></a>
+        <a href="/" class="site_title"><i class="fa fa-forumbee"></i> <span>Trace Mates</span></a>
       </div>
       <div class="clearfix"></div>
 
@@ -13,24 +13,26 @@
       <!-- menu profile quick info -->
       <div class="profile">
         <div class="profile_pic">
-          <%= image_tag "img.jpg", :class => "img-circle profile_img"  %>
+          <%= image_tag "profile_pic_placeholder.png", :class => "img-circle profile_img"  %>
         </div>
         <div class="profile_info">
-          <span>Logged in</span>
-          <h2>Admin</h2>
+          <span>Logged in as</span>
+          <h2><%= current_admin.email %></h2>
         </div>
       </div>
       <!-- /menu profile quick info -->
 
       <br />
-
+      
+      <h3>&nbsp;</h3>
+      
+      <div class="clearfix"></div>
       <!-- sidebar menu -->
       <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
         <div class="menu_section">
-          <h3>&nbsp;</h3>
           <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+            <li><a href="/"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
               <!-- <ul class="nav child_menu" style="display: none"> -->
               <!--   <li><a href="index.html">Dashboard</a> -->
               <!--   </li> -->
@@ -40,7 +42,7 @@
               <!--   </li> -->
               <!-- </ul> -->
             </li>
-            <li><a><i class="fa fa-edit"></i> Driver Capture <span class="fa fa-chevron-down"></span></a>
+            <li><a href="driver_capture"><i class="fa fa-edit"></i> Driver Capture <span class="fa fa-chevron-down"></span></a>
               <!-- <ul class="nav child_menu" style="display: none"> -->
               <!--   <li><a href="form.html">General Form</a> -->
               <!--   </li> -->
@@ -56,7 +58,7 @@
               <!--   </li> -->
               <!-- </ul> -->
             </li>
-            <li><a><i class="fa fa-desktop"></i> Delivery Sheet <span class="fa fa-chevron-down"></span></a>
+            <li><a href="delivery_sheet"><i class="fa fa-table"></i> Delivery Sheet <span class="fa fa-chevron-down"></span></a>
               <!-- <ul class="nav child_menu" style="display: none"> -->
               <!--   <li><a href="general_elements.html">General Elements</a> -->
               <!--   </li> -->
@@ -78,7 +80,7 @@
               <!--   </li> -->
               <!-- </ul> -->
             </li>
-            <li><a><i class="fa fa-table"></i> Trace & Track <span class="fa fa-chevron-down"></span></a>
+            <li><a href="/"><i class="fa fa-search"></i> Trace & Track <span class="fa fa-chevron-down"></span></a>
               <!-- <ul class="nav child_menu" style="display: none"> -->
               <!--   <li><a href="tables.html">Tables</a> -->
               <!--   </li> -->

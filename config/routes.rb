@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :admins
+
+  resources :drivers
+  resources :parcels
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-   root 'home#index'
+  match 'driver_capture' => 'drivers#new', :via => :get
+  match 'delivery_sheet' => 'parcels#new', :via => :get
+  match '/logout' => 'devise/sessions#destroy', :via => :get
+  #g You can have the root of your site routed with "root"
+   root 'home#map'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

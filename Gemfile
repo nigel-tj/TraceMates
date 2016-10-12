@@ -50,3 +50,8 @@ group :development do
 end
 
 gem 'devise'
+gem 'schema_to_scaffold'
+gem 'mysql'
+gem 'mysql2'
+gem 'yaml_db'
+gem "twitter-bootstrap-rails"
