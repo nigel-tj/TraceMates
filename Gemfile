@@ -55,3 +55,4 @@ gem 'mysql'
 gem 'mysql2'
 gem 'yaml_db'
 gem "twitter-bootstrap-rails"
+gem 'uuid'

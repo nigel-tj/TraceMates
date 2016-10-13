@@ -1,11 +1,9 @@
+<%- model_class = Parcel -%>
+
 <!-- page content -->
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
-      <div class="title_left">
-        <h3>Live Feed</h3>
-      </div>
-
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
@@ -24,7 +22,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="height:600px;">
           <div class="x_title">
-            <h2>Map</h2>
+            <h2>Delivery Sheet</h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -43,7 +41,7 @@
             <div class="clearfix"></div>
           </div>
 	  <div>
-	    <p id="map"></p>
+	    <%= render :partial => 'form' %>
 	  </div>
 	</div>
       </div>
@@ -51,49 +49,3 @@
   </div>
 </div>
 <!-- /page content -->
-
-<!--Test Page specific JS -->
-<!-- <script> alert ('Test Page specific JS')</script> -->
-<script>
-  $(document).ready(function(){
-  
-  if( navigator.geolocation )
-  navigator.geolocation.getCurrentPosition(success, fail);
-  else
-  $("p").html("HTML5 Not Supported");
-
-  });
-  
-  function success(position)
-  {
-  var googleLatLng = new google.maps.LatLng(position.coords.latitude,
-  position.coords.longitude);
-  var mapOtn= {
-  zoom:10,
-  center   :googleLatLng,
-  mapTypeId:google.maps.MapTypeId.ROAD
-  }
-  
-  var Pmap= document.getElementById("map");
-
-  var map= new google.maps.Map(Pmap, mapOtn);
-  }
-
-  function fail(error)
-  {
-  var errorType = {
-  0: "Unknown Error",
-  1: "Permission denied by the user",
-  2: "Position of the user not available",
-  3: "Request timed out"
-  };
-
-  var errMsg = errorType[error.code];
-
-  if(error.code == 0 || error.code == 2){
-  errMsg = errMsg+" - "+error.message;
-  }
-
-  $("p").html(errMsg);
-  }
-</script>
