@@ -24,6 +24,10 @@ class DriversController < ApplicationController
   def update
   end
 
+  def edit
+    @driver = Driver.find(params[:id])
+  end
+
   private
   def driver_params
     params.require(:driver).permit(:name,:surname,:phone,:email,:address,:province,:city, :postal_code,:driver_id, :bank_name, :branch_code, :account_holder, :account_number, :account_type  )
