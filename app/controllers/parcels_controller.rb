@@ -8,8 +8,8 @@ class ParcelsController < ApplicationController
 
   def new
     @parcel = Parcel.new
-    uuid = UUID.new
-    @tracking_number = uuid.generate
+    #uuid = UUID.new
+    #@tracking_number = uuid.generate
   end
 
   def show
