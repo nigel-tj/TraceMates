@@ -18,6 +18,10 @@
     <div class="clearfix"></div>
     
     <div class="row">
+      
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+      new_driver_path,
+      :class => 'btn btn-primary' %>
 
       <table class="table table-striped">
         <thead>
@@ -56,11 +60,6 @@
           <% end %>
         </tbody>
       </table>
-
-      <%= link_to t('.new', :default => t("helpers.links.new")),
-      new_driver_path,
-      :class => 'btn btn-primary' %>
-
     </div>
   </div>
 </div>
