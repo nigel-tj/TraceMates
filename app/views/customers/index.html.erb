@@ -18,7 +18,11 @@
     <div class="clearfix"></div>
     
     <div class="row">
-      
+            
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+      new_customer_path,
+      :class => 'btn btn-primary' %>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -51,10 +55,6 @@
           <% end %>
         </tbody>
       </table>
-      
-      <%= link_to t('.new', :default => t("helpers.links.new")),
-      new_customer_path,
-      :class => 'btn btn-primary' %>
     </div>
   </div>
 </div>
