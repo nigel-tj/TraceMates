@@ -14,7 +14,7 @@
       </div>
     </div>
   <% end %>
-  <div class="row" >
+  <div class="row" style="background-color: aliceblue">
     
     <div class="form-group col-lg-6">
       <div class="col-lg-12">
@@ -107,15 +107,14 @@
         <%= f.text_field :tracking_number, :value => @tracking_number, :class => 'form-control' %>
       </div>
       <%=f.error_span(:tracking_number) %>
-    </div>
-
-  
-    <div class="form-group">
-      <div class="col-lg-offset-2 col-lg-10">
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-        parcels_path, :class => 'btn btn-default' %>
-      </div>
+    </div>  
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-5 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      parcels_path, :class => 'btn btn-default' %>
     </div>
   </div>
+
 <% end %>
