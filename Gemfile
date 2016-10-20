@@ -52,7 +52,7 @@ end
 gem 'devise'
 gem 'schema_to_scaffold'
 gem 'mysql'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'yaml_db'
 gem "twitter-bootstrap-rails"
 gem 'uuid'
