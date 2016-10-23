@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012145039) do
+ActiveRecord::Schema.define(version: 20161023182948) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -103,12 +103,18 @@ ActiveRecord::Schema.define(version: 20161012145039) do
   add_index "locations", ["location_id"], name: "location_id", unique: true, using: :btree
 
   create_table "parcels", id: false, force: :cascade do |t|
-    t.integer  "id",             limit: 4,                  null: false
-    t.string   "parcel_id",      limit: 128,   default: "", null: false
-    t.string   "name",           limit: 128,   default: "", null: false
-    t.text     "parcel_details", limit: 65535
+    t.integer  "id",              limit: 4,                  null: false
+    t.string   "parcel_id",       limit: 128,   default: "", null: false
+    t.string   "name",            limit: 128,   default: "", null: false
+    t.text     "parcel_details",  limit: 65535
     t.datetime "creation_time"
     t.datetime "modified_time"
+    t.integer  "customer_id",     limit: 4
+    t.string   "tracking_number", limit: 255
+    t.string   "address",         limit: 255
+    t.string   "city",            limit: 255
+    t.string   "province",        limit: 255
+    t.string   "postal_code",     limit: 255
   end
 
   add_index "parcels", ["id"], name: "id", unique: true, using: :btree

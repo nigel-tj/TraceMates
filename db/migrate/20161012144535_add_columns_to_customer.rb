@@ -1,3 +1,4 @@
+
 class AddColumnsToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :province, :string

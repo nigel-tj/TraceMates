@@ -1,3 +1,4 @@
+
 <%= form_for @customer, :html => { :class => "form-horizontal parcel" } do |f| %>
 
   <% if @customer.errors.any? %>
@@ -21,7 +22,7 @@
         <%= f.label :name, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :name, :class => 'form-control' %>
+        <%= f.text_field :name, :value => @customer.name, :class => 'form-control' %>
       </div>
       <%=f.error_span(:name) %>
     </div>
@@ -30,7 +31,7 @@
         <%= f.label :surname, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :surname, :class => 'form-control' %>
+        <%= f.text_field :surname, :value => @customer.surname, :class => 'form-control' %>
       </div>
       <%=f.error_span(:surname) %>
     </div>
@@ -39,7 +40,7 @@
         <%= f.label :phone, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :phone, :class => 'form-control' %>
+        <%= f.text_field :phone, :value => @customer.phone, :class => 'form-control' %>
       </div>
       <%=f.error_span(:phone) %>
     </div>      
@@ -48,7 +49,7 @@
         <%= f.label :email, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :email, :class => 'form-control' %>
+        <%= f.text_field :email, :value => @customer.email, :class => 'form-control' %>
       </div>
       <%=f.error_span(:email) %>
     </div>
@@ -57,7 +58,7 @@
         <%= f.label :address, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :address, :class => 'form-control' %>
+        <%= f.text_field :address, :value => @customer.address, :class => 'form-control' %>
       </div>
       <%=f.error_span(:address) %>
     </div>
@@ -66,7 +67,7 @@
         <%= f.label :address, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :address, :class => 'form-control' %>
+        <%= f.text_field :address, :value => @customer.address, :class => 'form-control' %>
       </div>
       <%=f.error_span(:address) %>
     </div>
@@ -75,7 +76,7 @@
         <%= f.label :province, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :province, :class => 'form-control' %>
+        <%= f.text_field :province, :value => @customer.province, :class => 'form-control' %>
       </div>
       <%=f.error_span(:province) %>
     </div>
@@ -84,7 +85,7 @@
         <%= f.label :city, :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-12">
-        <%= f.text_field :city, :class => 'form-control' %>
+        <%= f.text_field :city, :value => @customer.city, :class => 'form-control' %>
       </div>
       <%=f.error_span(:city) %>
     </div>
@@ -93,7 +94,7 @@
         <%= f.label :postal_code, :class => 'control-label col-lg-2' %>
       </div>
         <div class="col-lg-12">
-          <%= f.text_field :postal_code, :class => 'form-control' %>
+          <%= f.text_field :postal_code, :value => @customer.postal_code, :class => 'form-control' %>
         </div>
         <%=f.error_span(:postal_code) %>
     </div>
@@ -101,14 +102,19 @@
 
     <div class="form-group col-lg-6">
       <div class="col-lg-12">
-        <%= f.label :tracking_number, :class => 'control-label col-lg-2' %>
+        <%= f.label "client id", :class => 'control-label col-lg-2' %>
       </div>
       <div class="col-lg-10">
-        <%= f.text_field :tracking_number, :value => @tracking_number, :class => 'form-control' %>
+	<% if controller.controller_name == "customer" && controller.action_name == "new" %>
+          <%= f.text_field :tracking_number, :value =>  @tracking_number, :class => 'form-control' %>
+	<% else %>
+	  <%= f.text_field :tracking_number, :value => @customer.tracking_number, :class => 'form-control' %>
+	<% end %>
       </div>
       <%=f.error_span(:tracking_number) %>
     </div>  
   </div>
+
   <div class="form-group">
     <div class="col-lg-offset-5 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -116,5 +122,4 @@
       parcels_path, :class => 'btn btn-default' %>
     </div>
   </div>
-
 <% end %>

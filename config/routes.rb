@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match 'driver_capture' => 'drivers#new', :via => :get
   match 'delivery_sheet' => 'customers#new', :via => :get
   match '/logout' => 'devise/sessions#destroy', :via => :get
+  match '/trace/:id' => 'customers#trace', :via => :get
   #g You can have the root of your site routed with "root"
    root 'home#map'
 
