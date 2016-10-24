@@ -16,6 +16,8 @@
     
     
     <div class="row">
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+      new_parcel_path(@parcel), :class => 'btn btn-primary' %>
       <%= link_to t('customers', :default => "List Customers"),
       "customers",
       :class => 'btn btn-primary' %>

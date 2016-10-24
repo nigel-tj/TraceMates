@@ -27,10 +27,6 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
-  def trace
-    @customer = Customer.find(params[:id])
-  end
-
   def create
     @customer = Customer.new(customer_params)
     @tracker = Tracker.new

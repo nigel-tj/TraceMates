@@ -7,6 +7,7 @@ class ParcelsController < ApplicationController
   end
 
   def new
+    @customer = Customer.find(params[:id])
     @parcel = Parcel.new
     uuid = UUID.new
     @tracking_number = uuid.generate
@@ -31,7 +32,7 @@ class ParcelsController < ApplicationController
   
   private
   def parcel_params
-    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number)
+    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number, :custoner_id)
   end
 
 end
