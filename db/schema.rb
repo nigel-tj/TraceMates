@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023225927) do
+ActiveRecord::Schema.define(version: 20161025012645) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -88,17 +88,19 @@ ActiveRecord::Schema.define(version: 20161023225927) do
   add_index "drivers", ["id"], name: "id", unique: true, using: :btree
 
   create_table "locations", id: false, force: :cascade do |t|
-    t.integer  "id",             limit: 4,                null: false
-    t.string   "location_id",    limit: 128, default: "", null: false
-    t.string   "longitude",      limit: 128, default: "", null: false
-    t.string   "latitude",       limit: 128, default: "", null: false
-    t.string   "street_address", limit: 128, default: ""
-    t.string   "neighbourhood",  limit: 128, default: ""
-    t.string   "city",           limit: 128, default: ""
-    t.string   "region",         limit: 128, default: ""
-    t.string   "country",        limit: 128, default: ""
+    t.integer  "id",              limit: 4,                null: false
+    t.string   "location_id",     limit: 128, default: "", null: false
+    t.string   "longitude",       limit: 128, default: "", null: false
+    t.string   "latitude",        limit: 128, default: "", null: false
+    t.string   "street_address",  limit: 128, default: ""
+    t.string   "neighbourhood",   limit: 128, default: ""
+    t.string   "city",            limit: 128, default: ""
+    t.string   "region",          limit: 128, default: ""
+    t.string   "country",         limit: 128, default: ""
     t.datetime "creation_time"
     t.datetime "modified_time"
+    t.string   "tracking_number", limit: 255
+    t.string   "tracker_id",      limit: 255
   end
 
   add_index "locations", ["id"], name: "id", unique: true, using: :btree
@@ -117,6 +119,7 @@ ActiveRecord::Schema.define(version: 20161023225927) do
     t.string   "city",            limit: 255
     t.string   "province",        limit: 255
     t.string   "postal_code",     limit: 255
+    t.string   "tracker_id",      limit: 255
   end
 
   add_index "parcels", ["id"], name: "id", unique: true, using: :btree

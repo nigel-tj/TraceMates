@@ -43,7 +43,7 @@
             <td><%= customer.surname %></td>
             <td><%= customer.phone %></td>
             <td>
-	      <a href="/customer/<%= customer.id %>"> view all parcels </a>
+	      <a href="/customers/<%= customer.id %>"> view all parcels </a>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_customer_path(customer), :class => 'btn btn-default btn-xs' %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

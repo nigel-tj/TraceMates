@@ -7,7 +7,7 @@ class ParcelsController < ApplicationController
   end
 
   def new
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
     @parcel = Parcel.new
     uuid = UUID.new
     @tracking_number = uuid.generate
@@ -20,6 +20,18 @@ class ParcelsController < ApplicationController
   def edit
     @parcel = Parcel.find(params[:id])
   end
+
+  def create
+    @parcel = Parcel.new(parcel_params)
+    
+    if @parcel.save
+      flash[:notice] = "Successfully saved parcel."
+      render :action => 'index'
+    else
+      render :action => 'new'
+    end
+  end
+
 
   def update
     @parcel = Parcel.find(params[:id])
