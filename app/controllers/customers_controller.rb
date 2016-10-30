@@ -1,12 +1,13 @@
 class CustomersController < ApplicationController
- def index
+  before_filter :set_customer_id, :only => [:new]
+  
+  def index
    @customers = Customer.all
   end
 
   def new
     @customer = Customer.new
-    uuid = UUID.new
-    @client_number = uuid.generate
+    
   end
 
   def show
@@ -29,8 +30,11 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    @tracker = Tracker.new
-    @tracker.tracking_id = @customer.tracking_number 
+    #@tracker = Tracker.new
+    #@tracker.tracker_id = @customer.tracking_number 
+    uuid = UUID.new
+    @client_number = uuid.generate
+    @customer.customer_id = @client_number 
     
     if @customer.save
       flash[:notice] = "Successfully saved customer."
@@ -46,4 +50,8 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(:name,:surname,:phone,:email,:address,:province,:city, :postal_code, :tracking_number)
   end
 
+  def set_customer_id
+    uuid = UUID.new
+    @client_number = uuid.generate
+  end
 end

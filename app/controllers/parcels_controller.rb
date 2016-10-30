@@ -23,7 +23,10 @@ class ParcelsController < ApplicationController
 
   def create
     @parcel = Parcel.new(parcel_params)
-    
+
+    uuid = UUID.new
+    @tracking_number = uuid.generate
+    @parcel.parcel_id = @tracking_number
     if @parcel.save
       flash[:notice] = "Successfully saved parcel."
       render :action => 'index'

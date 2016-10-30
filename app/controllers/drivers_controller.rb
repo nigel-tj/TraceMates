@@ -13,6 +13,9 @@ class DriversController < ApplicationController
 
   def create
     @driver = Driver.new(driver_params)
+    uuid = UUID.new
+    @driver_number = uuid.generate
+    @driver.driver_id = @driver_number
     if @driver.save
       flash[:notice] = "Successfully saved driver."
       render :action => 'index'
