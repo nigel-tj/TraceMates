@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @parcels = Parcel.where(:customer_id => params[:id])
+    @parcels = Parcel.where(:customer_id => @customer.customer_id)
   end
 
   def update

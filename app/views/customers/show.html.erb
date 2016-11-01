@@ -65,12 +65,11 @@
 		    <tbody>
 		      <% @parcels.each do |parcel| %>
 		      <tr>
-			<td><%= link_to parcel.id, parcel_path(parcel) %></td>
-			<td><%= parcel.parcel_id %></td>
+			<td><%= link_to parcel.parcel_id, parcel_path(parcel) %></td>
 			<td><%= parcel.name %></td>
 			<td><%= parcel.parcel_details %></td>
 			<td>
-			  <a href="/trace/<%= parcel.tracking_number%>"> trace </a>
+			  <a href="/trace/<%= parcel.parcel_id%>"> trace </a>
 			  <%= link_to t('.edit', :default => t("helpers.links.edit")),
 			  edit_parcel_path(parcel), :class => 'btn btn-primary' %>
 			</td>

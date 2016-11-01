@@ -7,8 +7,10 @@ class ParcelsController < ApplicationController
   end
 
   def new
-    @customer = Customer.find(params[:customer_id])
+    @customer_id = params[:customer_id]
+    @customer = Customer.find(@customer_id)
     @parcel = Parcel.new
+    
     uuid = UUID.new
     @tracking_number = uuid.generate
   end
@@ -27,6 +29,7 @@ class ParcelsController < ApplicationController
     uuid = UUID.new
     @tracking_number = uuid.generate
     @parcel.parcel_id = @tracking_number
+    @parcel.customer_id = params[:parcel][:customer_id]
     if @parcel.save
       flash[:notice] = "Successfully saved parcel."
       render :action => 'index'
@@ -47,7 +50,7 @@ class ParcelsController < ApplicationController
   
   private
   def parcel_params
-    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number, :custoner_id)
+    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number, :customer_id)
   end
 
 end
