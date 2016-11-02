@@ -56,3 +56,4 @@ gem 'mysql2', '~> 0.3.18'
 gem 'yaml_db'
 gem "twitter-bootstrap-rails"
 gem 'uuid'
+gem 'rest-client'

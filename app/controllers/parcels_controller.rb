@@ -1,4 +1,6 @@
 require 'uuid'
+require 'rest-client'
+require 'json'
 
 class ParcelsController < ApplicationController
 
@@ -23,6 +25,14 @@ class ParcelsController < ApplicationController
     @parcel = Parcel.find(params[:id])
   end
 
+  def trace
+    Parcel.where(:tracking_number => params[:id])
+    response = RestClient.get 'http://tracemates.foodmates.co.za/services/rest/v1/tracemates.php', {params: {"function" => "get_tracker_locations", 'tracking_number' => '123456789'}}
+    @data = JSON.parse(response.body)
+    @locations = @data["data"]
+  end
+  
+  
   def create
     @parcel = Parcel.new(parcel_params)
 

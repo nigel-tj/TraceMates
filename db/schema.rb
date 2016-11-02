@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025012645) do
+ActiveRecord::Schema.define(version: 20161101205117) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20161025012645) do
     t.text     "parcel_details",  limit: 65535
     t.datetime "creation_time"
     t.datetime "modified_time"
-    t.integer  "customer_id",     limit: 4
+    t.string   "customer_id",     limit: 255
     t.string   "tracking_number", limit: 255
     t.string   "address",         limit: 255
     t.string   "city",            limit: 255
