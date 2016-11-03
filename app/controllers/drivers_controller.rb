@@ -25,6 +25,12 @@ class DriversController < ApplicationController
   end
 
   def update
+    @driver = Driver.find(params[:id])
+    if @driver.update_attributes(driver_params)
+    # Handle a successful update.
+    else
+      render 'edit'
+    end
   end
 
   def edit

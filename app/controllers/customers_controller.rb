@@ -1,3 +1,4 @@
+require 'uuid'
 class CustomersController < ApplicationController
   before_filter :set_customer_id, :only => [:new]
   
