@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101205117) do
+ActiveRecord::Schema.define(version: 20161111221115) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20161101205117) do
     t.string   "province",        limit: 255
     t.string   "postal_code",     limit: 255
     t.string   "tracker_id",      limit: 255
+    t.string   "delivered_flag",  limit: 1
   end
 
   add_index "parcels", ["id"], name: "id", unique: true, using: :btree

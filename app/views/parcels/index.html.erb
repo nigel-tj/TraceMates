@@ -33,7 +33,8 @@
 		  <th><%= model_class.human_attribute_name(:id) %></th>
 		  <th><%= model_class.human_attribute_name(:parcel_id) %></th>
 		  <th><%= model_class.human_attribute_name(:name) %></th>
-		  <th><%= model_class.human_attribute_name(:parcel_details) %></th>	    
+		  <th><%= model_class.human_attribute_name(:parcel_details) %></th>
+                  <th><%= model_class.human_attribute_name(:delivered_flag) %></th>
 		  <th><%=t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
 	      </thead>
@@ -44,7 +45,8 @@
 		  <td><%= parcel.parcel_id %></td>
 		  <td><%= parcel.name %></td>
 		  <td><%= parcel.parcel_details %></td>
-		  <td>
+                  <td><%= parcel.delivered_flag %></td>
+                  <td>
 		    <%= link_to t('.edit', :default => t("helpers.links.edit")),
 		    edit_parcel_path(parcel), :class => 'btn btn-default btn-xs' %>
 		    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

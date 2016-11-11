@@ -40,6 +40,7 @@ class ParcelsController < ApplicationController
     @tracking_number = uuid.generate
     @parcel.parcel_id = @tracking_number
     @parcel.customer_id = params[:parcel][:customer_id]
+    @parcel.delivered_flag = 'f'
     if @parcel.save
       flash[:notice] = "Successfully saved parcel."
       render :action => 'index'
