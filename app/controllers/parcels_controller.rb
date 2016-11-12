@@ -9,6 +9,7 @@ class ParcelsController < ApplicationController
   end
 
   def new
+    @drivers = Driver.all
     @customer_id = params[:customer_id]
     @customer = Customer.find(@customer_id)
     @parcel = Parcel.new
@@ -22,6 +23,7 @@ class ParcelsController < ApplicationController
   end
 
   def edit
+    @drivers = Driver.all
     @parcel = Parcel.find(params[:id])
   end
 
@@ -41,6 +43,7 @@ class ParcelsController < ApplicationController
     @parcel.parcel_id = @tracking_number
     @parcel.customer_id = params[:parcel][:customer_id]
     @parcel.delivered_flag = 'f'
+    @parcel.tracker_id = params[:parcel][:tracker_id]
     if @parcel.save
       flash[:notice] = "Successfully saved parcel."
       render :action => 'index'
@@ -51,6 +54,7 @@ class ParcelsController < ApplicationController
 
 
   def update
+    @drivers = Driver.all
     @parcel = Parcel.find(params[:id])
     if @parcel.update_attributes(parcel_params)
     # Handle a successful update.
@@ -61,7 +65,7 @@ class ParcelsController < ApplicationController
   
   private
   def parcel_params
-    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number, :customer_id)
+    params.require(:parcel).permit(:name,:parcel_details,:address,:province,:city, :postal_code, :tracking_number, :customer_id, :tracker_id)
   end
 
 end

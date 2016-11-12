@@ -86,7 +86,16 @@
         </div>
         <%=f.error_span(:postal_code) %>
     </div>
-  
+    <div class="form-group col-lg-6">
+      <div class="col-lg-12">
+        <%= f.label "assigned driver", :class => 'control-label col-lg-2' %>
+      </div>
+        <div class="col-lg-12">
+          <%= f.select :tracker_id, options_for_select(@drivers.map{ |driver| [driver.name, driver.driver_id, :selected => f.object.tracker_id] }) %>
+        </div>
+        <%=f.error_span(:tracker_id) %>
+    </div>
+    
     <div class="form-group">
       <div class="col-lg-offset-2 col-lg-10">
         <%= f.submit nil, :class => 'btn btn-primary' %>
